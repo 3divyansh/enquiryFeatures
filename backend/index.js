@@ -4,7 +4,6 @@ require("dotenv").config();
 
 const connectDB = require("./config/db");
 const enquiryRoutes = require("./routes/enquiryRoutes");
-const apiKeyMiddleware = require("./middleware/apiKeyMiddleware"); 
 
 const app = express();
 
@@ -13,7 +12,7 @@ app.use(express.json());
 
 connectDB();
 
-app.use("/api", apiKeyMiddleware, enquiryRoutes);
+app.use("/api" ,enquiryRoutes);
 
 
 app.get("/", (req, res) => {
